@@ -2,25 +2,22 @@
 
 namespace AppBundle\Entity;
 
+use \FOS\UserBundle\Model\User as FOSUser;
+
 /**
  * User
  */
-class User
+class User extends FOSUser
 {
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
     private $name;
-
-    /**
-     * @var string
-     */
-    private $email;
 
 
     /**

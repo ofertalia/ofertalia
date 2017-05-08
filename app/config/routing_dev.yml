@@ -24,3 +24,6 @@ load_controller:
 save_controller:
     path: /create
     defaults: { _controller: AppBundle:Default:create }
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
