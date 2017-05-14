@@ -1,0 +1,9 @@
+// TODO list:
+
+- Formulario de registro usuario css e ir al perfil
+- Dentro del perfil de usuario, opción de crear una empresa. La empresa quedará pendiente de validar. Avisar con un mensaje.
+- En el backoffice una sección para validar empresas pendientes.
+
+
+Install:
+php composer.json update
