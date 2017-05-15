@@ -12,7 +12,33 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return new Response('Available actions: load user, create user');
+        $userLogged = false;
+        $userName   = '';
+        $csrfToken  = '';
+
+        $securityContext = $this->container->get('security.authorization_checker');
+
+        if ($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            // authenticated REMEMBERED, FULLY will imply REMEMBERED (NON anonymous)
+            $userLogged = true;
+            $userName   = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
+        } else {
+            $csrfToken = $this->has('security.csrf.token_manager')
+                ? $this->get('security.csrf.token_manager')->getToken('authenticate')->getValue()
+                : null;
+        }
+
+        return $this->render(
+            'Front/Profile/index.html.twig',
+            [
+                'pageTitle'     => 'Ofertalia',
+                'description'   => 'Ofertalia page description',
+                'author'        => 'Ofertalia team',
+                'isUserLogged'  => $userLogged,
+                'userName'      => $userName,
+                'csrfToken'     => $csrfToken
+            ]
+        );
     }
 
     public function loadAction(Request $request)
