@@ -1,6 +1,6 @@
 AppBundle\Entity\Store:
     type: entity
-    table: null
+    table: store
     repositoryClass: AppBundle\Repository\StoreRepository
     id:
         id:
@@ -12,4 +12,18 @@ AppBundle\Entity\Store:
         name:
             type: string
             length: 255
-    lifecycleCallbacks: {  }
+
+    manyToMany:
+        # A store has N offers with a relationship table.
+        # Unidirectional: can be access only from company to offer.
+        offers:
+            targetEntity: AppBundle\Entity\Offer
+            joinTable:
+                name: company_offer_rel
+                joinColumns:
+                    company_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    offer_id:
+                        referencedColumnName: id
+                        unique: true

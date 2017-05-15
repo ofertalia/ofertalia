@@ -7,3 +7,27 @@ AppBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
+
+    oneToOne:
+        # A user has only one profile image.
+        # Unidirectional: can be access only from user to profile image.
+        image:
+            targetEntity: AppBundle\Entity\Picture
+            joinColumn:
+                name: image_id
+                referencedColumnName: id
+
+    manyToMany:
+        # A user has N companies with a relationship table.
+        # Unidirectional: can be access only from user to company.
+        companies:
+            targetEntity: AppBundle\Entity\Company
+            joinTable:
+                name: user_company_rel
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    company_id:
+                        referencedColumnName: id
+                        unique: true

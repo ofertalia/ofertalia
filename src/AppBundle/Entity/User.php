@@ -19,6 +19,9 @@ class User extends FOSUser
      */
     private $name;
 
+    private $companies;
+    private $image;
+
 
     /**
      * Get id

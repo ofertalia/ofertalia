@@ -11,11 +11,16 @@ class Store
      * @var int
      */
     private $id;
+    private $company;
+    private $pictures;
 
     /**
      * @var string
      */
     private $name;
+
+
+    private $offers;
 
 
     /**

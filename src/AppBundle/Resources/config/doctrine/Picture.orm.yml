@@ -1,0 +1,20 @@
+AppBundle\Entity\Picture:
+    type: entity
+    table: picture
+    repositoryClass: AppBundle\Repository\PictureRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        path:
+            type: string
+            length: 255
+        extension:
+            type: string
+            length: 10
+        title:
+            type: string
+            length: 255

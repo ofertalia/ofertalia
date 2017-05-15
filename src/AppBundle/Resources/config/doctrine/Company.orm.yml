@@ -1,0 +1,49 @@
+AppBundle\Entity\Company:
+    type: entity
+    table: company
+    repositoryClass: AppBundle\Repository\CompanyRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    fields:
+        name:
+            type: string
+            length: 50
+        description:
+            type: string
+            length: 255
+
+    # A company has N stores with a relationship table.
+    # Unidirectional: can be access only from company to store.
+    manyToMany:
+        stores:
+            targetEntity: AppBundle\Entity\Store
+            joinTable:
+                name: company_store_rel
+                joinColumns:
+                    company_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    store_id:
+                        referencedColumnName: id
+                        unique: true
+
+    oneToOne:
+        # A company has only one category.
+        # Unidirectional: can be access only from company to category.
+        category:
+            targetEntity: AppBundle\Entity\Category
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+
+        # A company has only one logo.
+        # Unidirectional: can be access only from company to picture.
+        logo:
+            targetEntity: AppBundle\Entity\Picture
+            joinColumn:
+                name: logo_id
+                referencedColumnName: id

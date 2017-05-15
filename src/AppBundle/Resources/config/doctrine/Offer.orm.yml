@@ -1,0 +1,21 @@
+AppBundle\Entity\Offer:
+    type: entity
+    table: offer
+    repositoryClass: AppBundle\Repository\OfferRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            nullable: false
+        startAt:
+            type: datetime
+            nullable: false
+        endAt:
+            type: datetime
+            nullable: false
