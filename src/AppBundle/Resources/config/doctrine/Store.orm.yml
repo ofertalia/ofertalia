@@ -12,7 +12,15 @@ AppBundle\Entity\Store:
         name:
             type: string
             length: 255
-
+        address:
+            type: string
+            length: 255
+        latitude:
+            type: string
+            length: 255
+        longitude:
+            type: string
+            length: 255
     manyToMany:
         # A store has N offers with a relationship table.
         # Unidirectional: can be access only from company to offer.

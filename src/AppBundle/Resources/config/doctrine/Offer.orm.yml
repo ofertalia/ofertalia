@@ -19,3 +19,19 @@ AppBundle\Entity\Offer:
         endAt:
             type: datetime
             nullable: false
+        body:
+            type: string
+            length: 255
+            nullable: false
+    manyToMany:
+        pictures:
+            targetEntity: AppBundle\Entity\Picture
+            joinTable:
+                name: offer_picture_rel
+                joinColumns:
+                    offer_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    picture_id:
+                        referencedColumnName: id
+                        unique: true

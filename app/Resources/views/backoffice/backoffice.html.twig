@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Hola backoffice
+<ul>
+    {% for company in companies %}
+        <li>{{ company.name }}: {{ company.description }}</li>
+    {% endfor %}
+</ul>
+
+<form action="/backoffice/save" method="post">
+    Company's Name:<br>
+    <input type="text" id="company_name" name="company_name" value="">
+    <br>
+    Description:<br>
+    <input type="text" id="company_description" name="company_description" value="">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

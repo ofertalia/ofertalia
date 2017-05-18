@@ -25,5 +25,14 @@ save_controller:
     path: /create
     defaults: { _controller: AppBundle:Default:create }
 
+backoffice_controller:
+    path: /backoffice
+    defaults: { _controller: AppBundle:Backoffice:backoffice}
+
+backoffice_save_company:
+    path: /backoffice/save
+    defaults: { _controller: AppBundle:Backoffice:save}
+    methods: [post]
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

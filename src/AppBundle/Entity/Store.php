@@ -13,6 +13,9 @@ class Store
     private $id;
     private $company;
     private $pictures;
+    private $address;
+    private $latitude;
+    private $longitude;
 
     /**
      * @var string

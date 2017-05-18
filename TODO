@@ -3,7 +3,24 @@
 - Formulario de registro usuario css e ir al perfil
 - Dentro del perfil de usuario, opción de crear una empresa. La empresa quedará pendiente de validar. Avisar con un mensaje.
 - En el backoffice una sección para validar empresas pendientes.
+- Sistema de localización (idiomas)
 
 
 Install:
 php composer.json update
+
+
+
+
+
+
+
+--------------------------
+Como crear una pagina
+--------------------------
+1- Crear la url 'app/config/routing_dev.yml'
+2- Crear metodo en el controlador (AppBundle:Default:backoffice, en este caso seria el 'default') (se encuentran los controles en 'src/AppBundle/Controller')
+    public function backoffice()
+        {
+
+        }

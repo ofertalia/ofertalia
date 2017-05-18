@@ -43,7 +43,8 @@ class DefaultController extends Controller
 
     public function loadAction(Request $request)
     {
-        if (!$request->query->has('name')) {
+        if (!$request->query->has('name'))
+        {
             return new Response('Missing parameter: email');
         }
 
@@ -52,7 +53,8 @@ class DefaultController extends Controller
         /** @var User $user */
         $user = $userRepository->findOneBy(['name' => $request->query->get('name')]);
 
-        if ($user === null) {
+        if ($user === null)
+        {
             return new Response("User {$request->query->get('name')} does not exists");
         }
 

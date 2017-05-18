@@ -8,5 +8,7 @@ class Offer
     private $title;
     private $startAt;
     private $endAt;
+    private $pictures;
+    private $body;
 }
 

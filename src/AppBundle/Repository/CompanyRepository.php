@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Company;
 use AppBundle\Entity\User;
 
 /**
@@ -12,11 +13,11 @@ use AppBundle\Entity\User;
  */
 class CompanyRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function persist(User $user)
+    public function persist(Company $company)
     {
-        $this->getEntityManager()->persist($user);
-        $this->getEntityManager()->flush($user);
+        $this->getEntityManager()->persist($company);
+        $this->getEntityManager()->flush($company);
 
-        return $user;
+        return $company;
     }
 }
